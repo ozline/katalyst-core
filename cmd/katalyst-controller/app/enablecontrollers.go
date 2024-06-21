@@ -47,14 +47,14 @@ var ControllersDisabledByDefault = sets.NewString()
 var controllerInitializers sync.Map
 
 func init() {
-	controllerInitializers.Store(controller.VPAControllerName, ControllerStarter{Starter: controller.StartVPAController})
-	controllerInitializers.Store(controller.KCCControllerName, ControllerStarter{Starter: controller.StartKCCController})
-	controllerInitializers.Store(controller.SPDControllerName, ControllerStarter{Starter: controller.StartSPDController})
-	controllerInitializers.Store(controller.LifeCycleControllerName, ControllerStarter{Starter: controller.StartLifeCycleController})
-	controllerInitializers.Store(controller.MonitorControllerName, ControllerStarter{Starter: controller.StartMonitorController})
-	controllerInitializers.Store(controller.OvercommitControllerName, ControllerStarter{Starter: controller.StartOvercommitController})
-	controllerInitializers.Store(controller.TideControllerName, ControllerStarter{Starter: controller.StartTideController})
-	controllerInitializers.Store(controller.ResourceRecommenderControllerName, ControllerStarter{Starter: controller.StartResourceRecommenderController})
+	RegisterControllerInitializer(controller.VPAControllerName, ControllerStarter{Starter: controller.StartVPAController})
+	RegisterControllerInitializer(controller.KCCControllerName, ControllerStarter{Starter: controller.StartKCCController})
+	RegisterControllerInitializer(controller.SPDControllerName, ControllerStarter{Starter: controller.StartSPDController})
+	RegisterControllerInitializer(controller.LifeCycleControllerName, ControllerStarter{Starter: controller.StartLifeCycleController})
+	RegisterControllerInitializer(controller.MonitorControllerName, ControllerStarter{Starter: controller.StartMonitorController})
+	RegisterControllerInitializer(controller.OvercommitControllerName, ControllerStarter{Starter: controller.StartOvercommitController})
+	RegisterControllerInitializer(controller.TideControllerName, ControllerStarter{Starter: controller.StartTideController})
+	RegisterControllerInitializer(controller.ResourceRecommenderControllerName, ControllerStarter{Starter: controller.StartResourceRecommenderController})
 }
 
 // RegisterControllerInitializer is used to register user-defined controllers
